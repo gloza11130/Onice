@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>MONECAMP — How to Grow $50 Into $50,000</title>
+<style>
+  :root {
+    --primary: #0a74da;
+    --accent: #f1c40f;
+    --bg: #f9f9f9;
+    --card: #ffffff;
+    --muted: #6c757d;
+    --bonus-accent: #e67e22;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: Inter, "Segoe UI", Arial, sans-serif;
+    margin: 0;
+    background: var(--bg);
+    color: #222;
+    line-height: 1.6;
+  }
+
+  .site-header {
+    background: #fff;
+    border-bottom: 1px solid #e6e6e6;
+    padding: 14px 18px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+  .site-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    max-width: 1100px;
+    margin: auto;
+    justify-content: center;
+  }
+  .brand-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .site-title {
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #111;
+    margin: 0;
+    line-height: 1;
+  }
+
+  .site-nav {
+    margin-top: 10px;
+    background: var(--primary);
+  }
+  .site-nav .nav-inner {
+    max-width: 1100px;
+    margin: auto;
+    display: flex;
+    gap: 18px;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+  }
+  .site-nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    padding: 8px 12px;
+    border-radius: 6px;
+  }
+  .site-nav a:hover { opacity: 0.95; }
+
+  .container {
+    max-width: 1100px;
+    margin: 26px auto;
+    padding: 20px;
+    background: var(--card);
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(11, 86, 160, 0.05);
+  }
+
+  h1.page-title { color: var(--primary); margin-top: 0; }
+  h2.section-title { color: var(--primary); margin-bottom: 10px; }
+
+  .step {
+    background: #eef6ff;
+    border-left: 6px solid var(--primary);
+    padding: 14px;
+    margin: 14px 0;
+    border-radius: 6px;
+  }
+
+  .button {
+    display: inline-block;
+    background: var(--primary);
+    color: #fff;
+    padding: 10px 14px;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 700;
+    margin-top: 8px;
+  }
+
+  .bonus {
+    background: #fff8e6;
+    border: 1px solid #ffecc2;
+    padding: 16px;
+    border-radius: 10px;
+    margin-top: 16px;
+  }
+  .bonus h3 {
+    margin: 0 0 10px 0;
+    font-size: 1.15rem;
+    color: var(--muted);
+  }
+  .bonus table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    font-family: inherit;
+  }
+  .bonus th,
+  .bonus td {
+    border: 1px solid #ffecc2;
+    padding: 14px;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 1.125rem;
+  }
+  .bonus th {
+    font-weight: 800;
+    color: var(--primary);
+    background: #fffdf6;
+  }
+  .bonus td.amount {
+    font-size: 1.35rem;
+    font-weight: 900;
+    color: var(--bonus-accent);
+    letter-spacing: 0.5px;
+  }
+  .bonus td.emoji {
+    font-size: 1.45rem;
+  }
+
+  .tip {
+    background: #eefaf2;
+    border-left: 6px solid #28a745;
+    padding: 12px;
+    border-radius: 6px;
+    margin-top: 12px;
+  }
+  .important {
+    background: #fff0f1;
+    border-left: 6px solid #e55361;
+    padding: 12px;
+    border-radius: 6px;
+    margin-top: 12px;
+  }
+
+  .testimonials-link {
+    margin-top: 18px;
+    font-weight: 700;
+  }
+
+  /* New testimonial styles */
+  .testimonials-section {
+    margin-top: 24px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .testimonials-section h2 {
+    color: var(--primary);
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .testimonial {
+    background: var(--card);
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    padding: 16px;
+    margin-bottom: 16px;
+  }
+  .testimonial strong {
+    display: block;
+    font-weight: 700;
+  }
+  .testimonial time {
+    color: var(--muted);
+    font-size: 0.9rem;
+    display: block;
+    margin-bottom: 8px;
+  }
+  .stars {
+    color: #f1c40f;
+    font-weight: 700;
+    margin-left: 8px;
+    font-size: 1.2rem;
+    vertical-align: middle;
+  }
+
+  footer.site-footer {
+    text-align: center;
+    padding: 18px;
+    color: #fff;
+    background: linear-gradient(90deg, var(--primary), #0b5bb3);
+    margin-top: 28px;
+  }
+
+  @media (max-width: 720px) {
+    .site-title { font-size: 20px; }
+    .site-nav .nav-inner { flex-wrap: wrap; gap: 10px; padding: 8px; }
+    .container { margin: 12px; padding: 14px; }
+    .bonus th, .bonus td { font-size: 1rem; }
+    .bonus td.amount { font-size: 1.15rem; }
+  }
+</style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="site-brand">
+      <div class="brand-left">
+        <h1 class="site-title">MONECAMP</h1>
+      </div>
+    </div>
+  </header>
+
+  <!-- Navigation (CENTERED) -->
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="index.html">Home</a>
+      <a href="about.html" target="_blank" rel="noopener noreferrer">About Us</a>
+      <a href="testimonials.html" target="_blank" rel="noopener noreferrer">Testimonials</a>
+      <a href="contact.html" target="_blank" rel="noopener noreferrer">Contact</a>
+    </div>
+  </nav>
+
+  <!-- Main content -->
+  <main class="container" role="main">
+    <h1 class="page-title">How to Grow $50 Into $50,000: A Step-by-Step Earning Strategy</h1>
+
+    <p>Are you ready to turn a small starting capital into significant daily profits? With just <strong>$50</strong> and two electronic currency accounts, you can begin your journey to financial growth.</p>
+
+    <h2 class="section-title">✅ Step 1: Create Your E-Currency Accounts</h2>
+    <div class="step">
+      <p>To get started, you'll need to open two e-currency accounts. Choose any of the following.</p>
+      <p><a class="button" href="https://www.blockchain.com/" target="_blank" rel="noopener noreferrer">Bitcoin Wallet – Get Started with Blockchain</a></p>
+      <p><a class="button" href="https://www.exodus.com/" target="_blank" rel="noopener noreferrer">Exodus Wallet – Get Started with Exodus</a></p>
+    </div>
+
+    <h2 class="section-title">✅ Step 2: Fund One of Your Accounts</h2>
+    <div class="step">
+      <p>Ensure one of your e-currency accounts has at least <strong>$52</strong>. While $50 is the minimum required to begin, the extra $2 will cover transaction fees.</p>
+      <p>If your account has no funds, you can fund it using any of these trusted vendors:</p>
+      <ul>
+        <li><a href="https://paxful.com" target="_blank" rel="noopener noreferrer">Paxful</a></li>
+        <li><a href="https://www.binance.com" target="_blank" rel="noopener noreferrer">Binance</a></li>
+        <li><a href="https://www.luno.com" target="_blank" rel="noopener noreferrer">Luno</a></li>
+        <li><a href="https://coinatmradar.com" target="_blank" rel="noopener noreferrer">CoinATMRadar</a></li>
+        <li><a href="https://localbitcoins.com" target="_blank" rel="noopener noreferrer">LocalBitcoins</a></li>
+        <li><a href="https://www.buybitcoinworldwide.com" target="_blank" rel="noopener noreferrer">BuyBitcoinWorldwide</a></li>
+      </ul>
+    </div>
+
+    <h2 class="section-title">✅ Step 3: Begin Earning with MiaaExchange</h2>
+    <div class="step">
+      <p>To start earning, transfer $50 from your first e-currency account to your second account through MiaaExchange <a href="https://gmail.com" target="_blank" rel="noopener noreferrer">click here to visit MiaaExchange</a></p>
+
+      <h3>Here’s what happens:</h3>
+      <ul>
+        <li>For every $50 exchanged, you receive <strong>$62.50</strong> (Exchange rate: $1 USD = $1.25 USD)</li>
+        <li>You make an instant profit of <strong>$12.50</strong> in seconds</li>
+        <li>Now, transfer the <strong>$62.50</strong> back to your first account — and just like that, you make another <strong>$25</strong> profit in under a minute.</li>
+      </ul>
+    </div>
+
+    <h3>Repeat to Multiply Your Profits</h3>
+    <p>Continue exchanging funds back and forth to multiply your profit quickly. You can repeat this process several times a day to reach your income goals.</p>
+
+    <div class="bonus" aria-labelledby="bonus-title">
+      <h3 id="bonus-title">BONUS OFFERS FOR LARGER EXCHANGES</h3>
+      <table role="table" aria-describedby="bonus-note">
+        <thead>
+          <tr>
+            <th>Amount</th>
+            <th>Bonus</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="emoji">💸 $150–$200</td>
+            <td class="amount">$50</td>
+          </tr>
+          <tr>
+            <td class="emoji">💸 $250–$300</td>
+            <td class="amount">$80</td>
+          </tr>
+          <tr>
+            <td class="emoji">💸 $350–$400</td>
+            <td class="amount">$100</td>
+          </tr>
+          <tr>
+            <td class="emoji">💸 $450–$500</td>
+            <td class="amount">$150</td>
+          </tr>
+          <tr>
+            <td class="emoji">💸 $1,000–$50,000</td>
+            <td class="amount">25% bonus on capital</td>
+          </tr>
+        </tbody>
+      </table>
+      <p id="bonus-note" style="margin-top:8px;color:var(--muted);font-size:0.95rem;">Pro Tip: Start your first exchange with $150 or more to unlock bigger bonuses and reach your targets faster.</p>
+    </div>
+
+    <div class="tip">
+      <strong>Pro Tip:</strong> Start your first exchange with $150 or more to unlock bigger bonuses and reach your targets faster. This is part of our proven Triple Earning Strategy.
+    </div>
+
+    <div class="important">
+      <h3>💵 How to Convert Your Profit to Cash</h3>
+      <p>When you're ready to cash out:</p>
+      <ul>
+        <li>Contact any of the listed Bitcoin vendors</li>
+        <li>Send your funds to the vendor</li>
+        <li>Receive payment in cash or via bank transfer—quickly and securely</li>
+      </ul>
+    </div>
+
+    <div class="important" style="border-left-color:#007bff;">
+      <h3>Important Reminders</h3>
+      <ul>
+        <li>The more capital and time you commit, the more you can earn</li>
+        <li>Be consistent, stay focused, and use the exchange process wisely</li>
+        <li>Avoid delays — take action and start earning today!</li>
+      </ul>
+    </div>
+
+    <p class="testimonials-link">To view more testimonials, <a href="testimonials.html">visit here</a>.</p>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section" aria-label="User Testimonials">
+      <h2>What Users Have to Say</h2>
+
+      <article class="testimonial">
+        <strong>Emily R., USA</strong>
+        <time datetime="2025-08-05">August 5, 2025</time>
+        <p>"MONECAMP helped me grow my $50 starter fund to over $5,000 in just two months. Simple steps and quick profits!" <span class="stars">★★★★★</span></p>
+      </article>
+
+      <article class="testimonial">
+        <strong>Liam T., Australia</strong>
+        <time datetime="2025-07-20">July 20, 2025</time>
+        <p>"I was skeptical at first, but this strategy really works. Made consistent profits daily and unlocked bonuses quickly." <span class="stars">★★★★★</span></p>
+      </article>
+
+      <article class="testimonial">
+        <strong>Chloe M., Canada</strong>
+        <time datetime="2025-08-01">August 1, 2025</time>
+        <p>"The step-by-step instructions were clear and easy to follow. I’m now earning $700+ per week, all thanks to MONECAMP." <span class="stars">★★★★★</span></p>
+      </article>
+
+      <article class="testimonial">
+        <strong>Jason K., UK</strong>
+        <time datetime="2025-07-30">July 30, 2025</time>
+        <p>"Excellent platform! The bonuses on larger amounts are real and helped me boost my income faster than I thought." <span class="stars">★★★★★</span></p>
+      </article>
+
+      <article class="testimonial">
+        <strong>Aisha S., Nigeria</strong>
+        <time datetime="2025-08-07">August 7, 2025</time>
+        <p>"I appreciate the support from MONECAMP and how safe the whole exchange process feels. My earnings have been steadily growing." <span class="stars">★★★★★</span></p>
+      </article>
+
+      <article class="testimonial">
+        <strong>Lucas V., Brazil</strong>
+        <time datetime="2025-07-15">July 15, 2025</time>
+        <p>"Making money with just $50 seemed impossible until I found MONECAMP. Highly recommend to anyone starting out." <span class="stars">★★★★★</span></p>
+      </article>
+
+      <article class="testimonial">
+        <strong>Fatima H., UAE</strong>
+        <time datetime="2025-08-04">August 4, 2025</time>
+        <p>"The bonuses really make a difference. I doubled my capital within a week and keep growing it with the strategy." <span class="stars">★★★★★</span></p>
+      </article>
+
+      <article class="testimonial">
+        <strong>Michael P., Germany</strong>
+        <time datetime="2025-07-28">July 28, 2025</time>
+        <p>"Clear instructions and real profits. I have already withdrawn my earnings twice without any hassle." <span class="stars">★★★★★</span></p>
+      </article>
+
+      <article class="testimonial">
+        <strong>Sophia W., New Zealand</strong>
+        <time datetime="2025-07-26">July 26, 2025</time>
+        <p>"This is a legit way to grow your money. The community support and bonuses make it even better." <span class="stars">★★★★★</span></p>
+      </article>
+
+      <article class="testimonial">
+        <strong>David B., South Africa</strong>
+        <time datetime="2025-07-23">July 23, 2025</time>
+        <p>"Highly recommend MONECAMP to anyone looking for a reliable earning strategy with low startup capital." <span class="stars">★★★★★</span></p>
+      </article>
+
+    </section>
+
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <p>© 2025 MONECAMP. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
